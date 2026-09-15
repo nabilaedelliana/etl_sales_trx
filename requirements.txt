@@ -1,0 +1,4 @@
+pandas
+pyodbc
+apache-airflow
+apache-airflow-providers-microsoft-mssql
