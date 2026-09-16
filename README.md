@@ -83,6 +83,7 @@ data-engineering-test/
 │   ├── validate_data.py
 │   ├── load_staging.py
 │   └── load_dwh.py
+│   └── streaming_transaction.py
 │
 ├── sql/
 │   ├── 01_create_database.sql
@@ -98,6 +99,8 @@ data-engineering-test/
 │   ├── erd_data_modelling.png
 │   ├── erd_architecture.drawio
 │   └── erd_architecture.png
+│   ├── streaming_architecture.drawio
+│   └── streaming_architecture.png
 │
 └── docs/
     └── data_modeling.md
@@ -424,15 +427,20 @@ Aggregate Transaction Count
 * Pipeline Documentation: docs/streaming.md
 
 ### Run Streaming Pipeline
-`python scripts/streaming_transaction.py`
+```bash
+python scripts/streaming_transaction.py`
+```
 
 The pipeline runs continuously and can be stopped using `Ctrl + C`.
 
 Example output:
-`2026-09-16 15:51 | Transactions: 43`
-
+```
+2026-09-16 15:51 | Transactions: 43
+```
 For more details about the implementation and design choices, see:
-`docs/streaming.md`
+```
+docs/streaming.md
+```
 
 ---
 
