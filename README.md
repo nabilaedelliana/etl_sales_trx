@@ -398,6 +398,42 @@ For a production implementation, the pipeline could be extended with:
 * Cloud object storage
 * Streaming ingestion using Kafka
 
+## Optional Streaming Pipeline
+
+This project also includes an optional simple real-time streaming pipeline.
+
+The pipeline consists of:
+
+```text
+Dummy Transaction Generator
+            ↓
+       Python Stream
+            ↓
+Aggregate Transaction Count
+         Per Minute
+            ↓
+      Console Output
+```
+### Components
+* Source: Python dummy transaction generator
+* Processing: Aggregate transaction count per minute
+* Sink: Console output
+* Implementation: scripts/streaming_transaction.py
+* Architecture Diagram: diagrams/streaming_architecture.drawio
+* Architecture Preview: diagrams/streaming_architecture.png
+* Pipeline Documentation: docs/streaming.md
+
+### Run Streaming Pipeline
+`python scripts/streaming_transaction.py`
+
+The pipeline runs continuously and can be stopped using `Ctrl + C`.
+
+Example output:
+`2026-09-16 15:51 | Transactions: 43`
+
+For more details about the implementation and design choices, see:
+`docs/streaming.md`
+
 ---
 
 **Author:** Nabila Edelliana Khairunnisa
