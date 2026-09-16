@@ -1,0 +1,46 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1" id="7Rn352gbefWgbVaeYmP_">
+    <mxGraphModel grid="0" page="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="PNKXbKUtaYe-xD95fK3F-1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;" value="Dummy Transaction Generator&lt;div&gt;Python&lt;/div&gt;" vertex="1">
+          <mxGeometry height="51" width="223" x="15" y="462" as="geometry" />
+        </mxCell>
+        <mxCell id="PNKXbKUtaYe-xD95fK3F-2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Architects Daughter;fontSource=https://fonts.googleapis.com/css?family=Architects+Daughter;" value="&lt;div&gt;Python Stream&lt;/div&gt;&lt;div&gt;Continuous Event Loop&lt;/div&gt;" vertex="1">
+          <mxGeometry height="51" width="223" x="15" y="556" as="geometry" />
+        </mxCell>
+        <mxCell id="PNKXbKUtaYe-xD95fK3F-3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Architects Daughter;fontSource=https://fonts.googleapis.com/css?family=Architects+Daughter;" value="&lt;div&gt;Aggregate Transaction Count&lt;/div&gt;&lt;div&gt;Per Minute&lt;/div&gt;" vertex="1">
+          <mxGeometry height="51" width="223" x="15" y="650" as="geometry" />
+        </mxCell>
+        <mxCell id="PNKXbKUtaYe-xD95fK3F-4" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Architects Daughter;fontSource=https://fonts.googleapis.com/css?family=Architects+Daughter;" value="&lt;div&gt;Console Output&lt;/div&gt;&lt;div&gt;Transactions: N / minute&lt;/div&gt;" vertex="1">
+          <mxGeometry height="51" width="223" x="15" y="744" as="geometry" />
+        </mxCell>
+        <mxCell id="PNKXbKUtaYe-xD95fK3F-5" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=20;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;" value="Real-Time Streaming Transaction Pipeline" vertex="1">
+          <mxGeometry height="30" width="398" x="-72.5" y="415" as="geometry" />
+        </mxCell>
+        <mxCell id="PNKXbKUtaYe-xD95fK3F-6" edge="1" parent="1" source="PNKXbKUtaYe-xD95fK3F-1" style="edgeStyle=none;orthogonalLoop=1;jettySize=auto;html=1;rounded=0;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=16;startSize=14;endArrow=open;endSize=14;sourcePerimeterSpacing=8;targetPerimeterSpacing=8;curved=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="PNKXbKUtaYe-xD95fK3F-2" value="">
+          <mxGeometry relative="1" width="140" as="geometry">
+            <Array as="points" />
+            <mxPoint x="130" y="634" as="sourcePoint" />
+            <mxPoint x="270" y="634" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="PNKXbKUtaYe-xD95fK3F-7" edge="1" parent="1" source="PNKXbKUtaYe-xD95fK3F-2" style="edgeStyle=none;orthogonalLoop=1;jettySize=auto;html=1;rounded=0;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=16;startSize=14;endArrow=open;endSize=14;sourcePerimeterSpacing=8;targetPerimeterSpacing=8;curved=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="PNKXbKUtaYe-xD95fK3F-3" value="">
+          <mxGeometry relative="1" width="140" as="geometry">
+            <Array as="points" />
+            <mxPoint x="130" y="634" as="sourcePoint" />
+            <mxPoint x="270" y="634" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="PNKXbKUtaYe-xD95fK3F-8" edge="1" parent="1" source="PNKXbKUtaYe-xD95fK3F-3" style="edgeStyle=none;orthogonalLoop=1;jettySize=auto;html=1;rounded=0;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=16;startSize=14;endArrow=open;endSize=14;sourcePerimeterSpacing=8;targetPerimeterSpacing=8;curved=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="PNKXbKUtaYe-xD95fK3F-4" value="">
+          <mxGeometry relative="1" width="140" as="geometry">
+            <Array as="points" />
+            <mxPoint x="130" y="634" as="sourcePoint" />
+            <mxPoint x="270" y="634" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
