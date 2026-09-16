@@ -69,6 +69,11 @@ data-engineering-test/
 │   │   ├── transaction_items.csv
 │   │   └── marketing_campaigns.csv
 │   └── processed/
+│       ├── dim_customer.csv
+│       ├── dim_product.csv
+│       ├── dim_date.csv
+│       ├── dim_campaign.csv
+│       └── fact_sales.csv
 │
 ├── dags/
 │   └── sales_etl_dag.py
