@@ -1,0 +1,70 @@
+<mxfile host="app.diagrams.net" agent="ChatGPT">
+  <diagram name="ERD" id="erd-sales">
+    <mxGraphModel dx="1290" dy="752" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1000" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="staging" parent="1" style="swimlane;html=1;rounded=1;horizontal=1;startSize=36;fontStyle=1;fontSize=18;fillOpacity=20;whiteSpace=wrap;" value="STAGING" vertex="1">
+          <mxGeometry height="820" width="690" x="30" y="29" as="geometry" />
+        </mxCell>
+        <mxCell id="s_customers" parent="staging" style="shape=table;html=1;whiteSpace=wrap;rounded=0;align=left;spacingLeft=8;spacingTop=6;fontSize=13;container=1;collapsible=0;" value="&lt;div&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/div&gt;&lt;b&gt;&lt;div&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/div&gt;customers&lt;/b&gt;&lt;hr&gt;PK customer_id BIGINT&lt;br&gt;name VARCHAR(255)&lt;br&gt;email VARCHAR(255)&lt;br&gt;city VARCHAR(100)&lt;br&gt;signup_date DATE" vertex="1">
+          <mxGeometry height="170" width="300" x="20" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="s_products" parent="staging" style="shape=table;html=1;whiteSpace=wrap;rounded=0;align=left;spacingLeft=8;spacingTop=6;fontSize=13;container=1;collapsible=0;" value="&lt;div&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/div&gt;&lt;b&gt;&lt;div&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/div&gt;products&lt;/b&gt;&lt;hr&gt;PK product_id BIGINT&lt;br&gt;product_name VARCHAR(255)&lt;br&gt;category VARCHAR(100)&lt;br&gt;price DECIMAL(18,2)" vertex="1">
+          <mxGeometry height="150" width="310" x="350" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="s_transactions" parent="staging" style="shape=table;html=1;whiteSpace=wrap;rounded=0;align=left;spacingLeft=8;spacingTop=6;fontSize=13;container=1;collapsible=0;" value="&lt;div&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/div&gt;&lt;b&gt;&lt;div&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/div&gt;transactions&lt;/b&gt;&lt;hr&gt;PK transaction_id BIGINT&lt;br&gt;FK customer_id BIGINT&lt;br&gt;transaction_date DATETIME2&lt;br&gt;total_amount DECIMAL(18,2)" vertex="1">
+          <mxGeometry height="160" width="300" x="20" y="270" as="geometry" />
+        </mxCell>
+        <mxCell id="s_items" parent="staging" style="shape=table;html=1;whiteSpace=wrap;rounded=0;align=left;spacingLeft=8;spacingTop=6;fontSize=13;container=1;collapsible=0;" value="&lt;div&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/div&gt;&lt;b&gt;&lt;div&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/div&gt;transaction_items&lt;/b&gt;&lt;hr&gt;PK transaction_item_id BIGINT&lt;br&gt;FK transaction_id BIGINT&lt;br&gt;FK product_id BIGINT&lt;br&gt;quantity INT&lt;br&gt;price DECIMAL(18,2)" vertex="1">
+          <mxGeometry height="160" width="310" x="350" y="270" as="geometry" />
+        </mxCell>
+        <mxCell id="s_campaigns" parent="staging" style="shape=table;html=1;whiteSpace=wrap;rounded=0;align=left;spacingLeft=8;spacingTop=6;fontSize=13;container=1;collapsible=0;" value="&lt;div&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/div&gt;&lt;b&gt;&lt;div&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/div&gt;marketing_campaigns&lt;/b&gt;&lt;hr&gt;PK campaign_id BIGINT&lt;br&gt;campaign_name VARCHAR(255)&lt;br&gt;start_date DATE&lt;br&gt;end_date DATE&lt;br&gt;channel VARCHAR(100)" vertex="1">
+          <mxGeometry height="140" width="350" x="170" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="e_sc" edge="1" parent="staging" source="s_customers" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;endArrow=ERmany;startArrow=ERone;" target="s_transactions">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_sti" edge="1" parent="staging" source="s_transactions" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;endArrow=ERmany;startArrow=ERone;" target="s_items">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_spi" edge="1" parent="staging" source="s_products" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;endArrow=ERmany;startArrow=ERone;" target="s_items">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="dwh" parent="1" style="swimlane;html=1;rounded=1;horizontal=1;startSize=36;fontStyle=1;fontSize=18;fillOpacity=20;whiteSpace=wrap;" value="DWH — STAR SCHEMA" vertex="1">
+          <mxGeometry height="820" width="800" x="760" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="d_customer" parent="dwh" style="shape=table;html=1;whiteSpace=wrap;rounded=0;align=left;spacingLeft=8;spacingTop=6;fontSize=13;container=1;collapsible=0;" value="&lt;div&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/div&gt;&lt;b&gt;&lt;div&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/div&gt;dim_customer&lt;/b&gt;&lt;hr&gt;PK customer_key INT&lt;br&gt;customer_id BIGINT&lt;br&gt;name VARCHAR(255)&lt;br&gt;email VARCHAR(255)&lt;br&gt;city VARCHAR(100)&lt;br&gt;signup_date DATE" vertex="1">
+          <mxGeometry height="160" width="300" x="35" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="d_product" parent="dwh" style="shape=table;html=1;whiteSpace=wrap;rounded=0;align=left;spacingLeft=8;spacingTop=6;fontSize=13;container=1;collapsible=0;" value="&lt;div&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/div&gt;&lt;b&gt;&lt;div&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/div&gt;dim_product&lt;/b&gt;&lt;hr&gt;PK product_key INT&lt;br&gt;product_id BIGINT&lt;br&gt;product_name VARCHAR(255)&lt;br&gt;category VARCHAR(100)&lt;br&gt;price DECIMAL(18,2)" vertex="1">
+          <mxGeometry height="160" width="300" x="465" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="d_date" parent="dwh" style="shape=table;html=1;whiteSpace=wrap;rounded=0;align=left;spacingLeft=8;spacingTop=6;fontSize=13;container=1;collapsible=0;" value="&lt;div&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/div&gt;&lt;b&gt;&lt;div&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/div&gt;dim_date&lt;/b&gt;&lt;hr&gt;PK date_key INT&lt;br&gt;full_date DATE&lt;br&gt;day INT&lt;br&gt;day_name VARCHAR(20)&lt;br&gt;week INT&lt;br&gt;month INT&lt;br&gt;month_name VARCHAR(20)&lt;br&gt;quarter INT&lt;br&gt;year INT" vertex="1">
+          <mxGeometry height="200" width="300" x="490" y="600" as="geometry" />
+        </mxCell>
+        <mxCell id="d_campaign" parent="dwh" style="shape=table;html=1;whiteSpace=wrap;rounded=0;align=left;spacingLeft=8;spacingTop=6;fontSize=13;container=1;collapsible=0;" value="&lt;div&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/div&gt;&lt;b&gt;&lt;div&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/div&gt;dim_campaign&lt;/b&gt;&lt;hr&gt;PK campaign_key INT&lt;br&gt;campaign_id BIGINT&lt;br&gt;campaign_name VARCHAR(255)&lt;br&gt;start_date DATE&lt;br&gt;end_date DATE&lt;br&gt;channel VARCHAR(100)" vertex="1">
+          <mxGeometry height="150" width="300" x="30" y="600" as="geometry" />
+        </mxCell>
+        <mxCell id="d_fact" parent="dwh" style="shape=table;html=1;whiteSpace=wrap;rounded=0;align=left;spacingLeft=8;spacingTop=6;fontSize=13;container=1;collapsible=0;" value="&lt;div&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/div&gt;&lt;b&gt;&lt;div&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;b style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;br&gt;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;b style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;fact_sales&lt;/b&gt;&lt;/div&gt;&lt;/b&gt;&lt;hr&gt;PK sales_key BIGINT&lt;br&gt;FK transaction_id BIGINT&lt;br&gt;FK transaction_item_id BIGINT&lt;br&gt;FK customer_key INT&lt;br&gt;FK product_key INT&lt;br&gt;FK date_key INT&lt;br&gt;FK campaign_key INT NULL&lt;br&gt;quantity INT&lt;br&gt;unit_price DECIMAL(18,2)&lt;br&gt;sales_amount DECIMAL(18,2)" vertex="1">
+          <mxGeometry height="245" width="330" x="260" y="302.5" as="geometry" />
+        </mxCell>
+        <mxCell id="e_fc" edge="1" parent="dwh" source="d_customer" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=ERmany;startArrow=ERone;strokeWidth=2;" target="d_fact">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_fp" edge="1" parent="dwh" source="d_product" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=ERmany;startArrow=ERone;strokeWidth=2;" target="d_fact">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_fd" edge="1" parent="dwh" source="d_date" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=ERmany;startArrow=ERone;strokeWidth=2;" target="d_fact">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_fcamp" edge="1" parent="dwh" source="d_campaign" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;endArrow=ERmany;startArrow=ERone;strokeWidth=2;" target="d_fact">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="note" parent="1" style="shape=note;whiteSpace=wrap;html=1;fontSize=13;align=left;spacingLeft=10;spacingTop=8;" value="ETL flow: STAGING → DWH&lt;br&gt;Fact grain: 1 row per transaction item&lt;br&gt;Campaign attribution: transaction date within campaign active period" vertex="1">
+          <mxGeometry height="75" width="760" x="420" y="885" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

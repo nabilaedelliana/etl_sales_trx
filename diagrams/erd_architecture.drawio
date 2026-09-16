@@ -1,0 +1,82 @@
+<mxfile host="app.diagrams.net" agent="ChatGPT">
+  <diagram name="Architecture" id="architecture-sales">
+    <mxGraphModel dx="2512" dy="1102" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1000" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;fontStyle=1;fontSize=24;align=center;" value="DATA ENGINEERING PIPELINE — SALES DWH" vertex="1">
+          <mxGeometry height="40" width="740" x="430" y="25" as="geometry" />
+        </mxCell>
+        <mxCell id="source" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#333333;strokeWidth=2;fontStyle=1;fontSize=18;align=center;verticalAlign=top;spacingTop=15;" value="1. RAW DATA" vertex="1">
+          <mxGeometry height="440" width="260" x="50" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="csv" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;fontSize=15;align=center;verticalAlign=middle;" value="&lt;b&gt;CSV Source Files&lt;/b&gt;&lt;br&gt;&lt;br&gt;customers.csv&lt;br&gt;products.csv&lt;br&gt;transactions.csv&lt;br&gt;transaction_items.csv&lt;br&gt;marketing_campaigns.csv" vertex="1">
+          <mxGeometry height="285" width="200" x="80" y="205" as="geometry" />
+        </mxCell>
+        <mxCell id="airflow" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#333333;strokeWidth=2;fontStyle=1;fontSize=18;align=center;verticalAlign=top;spacingTop=15;" value="2. ORCHESTRATION" vertex="1">
+          <mxGeometry height="430" width="300" x="370" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="dag" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;fontSize=15;align=center;verticalAlign=middle;" value="&lt;b&gt;Apache Airflow&lt;/b&gt;&lt;br&gt;&lt;br&gt;sales_etl DAG&lt;br&gt;• Generate data&lt;br&gt;• Load staging&lt;br&gt;• Load dimensions&lt;br&gt;• Load fact&lt;br&gt;• End" vertex="1">
+          <mxGeometry height="285" width="220" x="410" y="205" as="geometry" />
+        </mxCell>
+        <mxCell id="sql" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#333333;strokeWidth=2;fontStyle=1;fontSize=18;align=center;verticalAlign=top;spacingTop=15;" value="3. STAGING DATABASE" vertex="1">
+          <mxGeometry height="430" width="280" x="730" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="stagingdb" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;fontSize=15;align=center;verticalAlign=middle;" value="&lt;b&gt;SQL Server — TesDE&lt;/b&gt;&lt;br&gt;&lt;br&gt;Schema: staging&lt;br&gt;• customers&lt;br&gt;• products&lt;br&gt;• transactions&lt;br&gt;• transaction_items&lt;br&gt;• marketing_campaigns" vertex="1">
+          <mxGeometry height="285" width="210" x="765" y="205" as="geometry" />
+        </mxCell>
+        <mxCell id="dwh" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#333333;strokeWidth=2;fontStyle=1;fontSize=18;align=center;verticalAlign=top;spacingTop=15;" value="4. DATA WAREHOUSE" vertex="1">
+          <mxGeometry height="430" width="480" x="1070" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="dims" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;fontSize=15;align=center;verticalAlign=middle;" value="&lt;b&gt;Dimension Tables&lt;/b&gt;&lt;br&gt;dim_customer&lt;br&gt;dim_product&lt;br&gt;dim_date&lt;br&gt;dim_campaign" vertex="1">
+          <mxGeometry height="220" width="190" x="1105" y="237" as="geometry" />
+        </mxCell>
+        <mxCell id="fact" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;strokeWidth=2;fontSize=15;align=center;verticalAlign=middle;" value="&lt;b&gt;fact_sales&lt;/b&gt;&lt;br&gt;&lt;br&gt;Grain: 1 row per&lt;br&gt;transaction item&lt;br&gt;&lt;br&gt;Measures:&lt;br&gt;quantity, unit_price,&lt;br&gt;sales_amount" vertex="1">
+          <mxGeometry height="220" width="190" x="1336" y="237" as="geometry" />
+        </mxCell>
+        <mxCell id="analytics" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#333333;strokeWidth=2;fontStyle=1;fontSize=18;align=center;verticalAlign=top;spacingTop=15;" value="5. ANALYTICS / CONSUMPTION" vertex="1">
+          <mxGeometry height="180" width="300" x="1190" y="629" as="geometry" />
+        </mxCell>
+        <mxCell id="bi" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;fontSize=15;align=center;verticalAlign=middle;" value="&lt;b&gt;BI / Reporting&lt;/b&gt;&lt;br&gt;&lt;br&gt;Sales analysis&lt;br&gt;Customer analysis&lt;br&gt;Product analysis&lt;br&gt;Campaign analysis" vertex="1">
+          <mxGeometry height="100" width="240" x="1220" y="684" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="csv" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;endArrow=block;endFill=1;" target="dag">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="dag" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;endArrow=block;endFill=1;" target="stagingdb">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="stagingdb" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;endArrow=block;endFill=1;" target="dims">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" edge="1" parent="1" source="stagingdb" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;endArrow=block;endFill=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1040" y="418.83" />
+              <mxPoint x="1040" y="470" />
+              <mxPoint x="1310" y="470" />
+              <mxPoint x="1310" y="390" />
+            </Array>
+            <mxPoint x="975" y="510" as="sourcePoint" />
+            <mxPoint x="1336.0000000000005" y="390.0000000000002" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e5" edge="1" parent="1" source="dims" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;endArrow=block;endFill=1;" target="fact">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" edge="1" parent="1" source="fact" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;endArrow=block;endFill=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="analytics">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1431" y="580" />
+              <mxPoint x="1340" y="580" />
+            </Array>
+            <mxPoint x="1340" y="670" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="note" parent="1" style="shape=note;whiteSpace=wrap;html=1;fontSize=14;align=left;spacingLeft=12;spacingTop=10;" value="&lt;b&gt;Key design points&lt;/b&gt;&lt;br&gt;• Python handles data generation and transformation logic&lt;br&gt;• Airflow handles orchestration and task dependencies&lt;br&gt;• SQL Server stores staging and DWH layers&lt;br&gt;• Star schema supports analytical queries&lt;br&gt;• Validation reconciles source transaction items with fact_sales" vertex="1">
+          <mxGeometry height="170" width="560" x="70" y="631" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
