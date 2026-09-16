@@ -233,19 +233,26 @@ The source transaction item count and DWH fact row count are identical, and the 
 ### 1. Clone the repository
 
 ```bash
-git clone <repository-url>
-cd data-engineering-test
+git clone https://github.com/nabilaedelliana/etl_sales_trx.git
+cd etl_sales_trx
 ```
 
 ### 2. Install Python dependencies
 
+Create and activate a Python virtual environment:
+
 ```bash
+python -m venv airflow-env
+source airflow-env/bin/activate
+```
+Install the project dependencies:
+```
 pip install -r requirements.txt
 ```
-
 ### 3. Configure SQL Server
 
 Create the database and schemas using the SQL scripts in the `sql/` directory.
+The project uses a SQL Server database named `TesDE`.
 
 Execute the scripts in the following order:
 
@@ -257,6 +264,11 @@ Execute the scripts in the following order:
 ```
 
 ### 4. Configure Airflow
+Initialize Airflow if it has not been initialized:
+
+```bash
+airflow db migrate
+```
 
 Create an Airflow connection for SQL Server:
 
@@ -271,10 +283,11 @@ Password: <SQL_PASSWORD>
 ```
 
 The credentials should be configured locally and should not be committed to GitHub.
+The DAG uses the connection ID `mssql_tesde` to connect to SQL Server.
 
 ### 5. Run the Airflow DAG
 
-Copy or place the DAG into the Airflow DAG directory:
+Ensure the DAG file is available in the Airflow DAG directory:
 
 ```text
 dags/sales_etl_dag.py
@@ -288,15 +301,31 @@ airflow dags trigger sales_etl
 
 The DAG executes the complete pipeline from data generation through DWH fact loading.
 
-## SQL Validation
 
-After the pipeline completes, the validation queries can be executed using:
+## Data Validation
+
+After the pipeline completes, data quality can be validated using the SQL validation queries or the Python validation script.
+
+### SQL Validation
+
+The SQL validation queries are available in:
 
 ```text
 sql/07_validation.sql
 ```
-
 These queries verify row counts, referential integrity, duplicates, invalid values, and reconciliation between source and warehouse data.
+
+### Python Validation
+The automated validation script can be executed using:
+```bash
+python scripts/validate_data.py
+```
+The script validates row counts, duplicate keys, business rules, referential integrity, transaction total reconciliation, and source-to-DWH fact reconciliation.
+
+The latest validation result:
+```
+VALIDATION PASSED
+```
 
 ## Design Decisions
 
